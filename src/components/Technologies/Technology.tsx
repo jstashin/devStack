@@ -1,5 +1,5 @@
 import { FaStar } from "react-icons/fa6";
-
+import YourStack from "../YourStack";
 const Technology = ({ technologies }) => {
     const getBadgeColor = (badge) => {
     if (badge === "Popular") {
@@ -23,23 +23,19 @@ const Technology = ({ technologies }) => {
   };
   return (
     <div className="flex gap-6">
-        <div className="w=3/4">
+    <div className="w-3/4">
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      {technologies.map((technology) => (
+    {technologies.map((technology) => (
         <div
           key={technology.id}
           className="card bg-base-100 border border-gray-200 shadow-sm p-5"
         >
-
-         
-          <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center">
             <img
               src={technology.icon}
               alt=""
               className="w-10 h-10"
             />
-
             <span
               className={`px-3 py-1 rounded-full text-xs ${getBadgeColor(
                 technology.badge
@@ -48,20 +44,14 @@ const Technology = ({ technologies }) => {
               {technology.badge}
             </span>
           </div>
+        <div className="mt-5">
+        <h2 className="text-xl font-bold">
+              {technology.name}</h2>
 
-          
-          <div className="mt-5">
-
-            <h2 className="text-xl font-bold">
-              {technology.name}
-            </h2>
-
-            <p className="text-gray-500 text-sm mt-3 min-h-[60px]">
+        <p className="text-gray-500 text-sm mt-3 min-h-[60px]">
               {technology.description}
             </p>
-
-            
-            <div className="flex items-center justify-between mt-5 text-sm">
+        <div className="flex items-center justify-between mt-5 text-sm">
 
               <span className="bg-gray-100 px-2 py-1 rounded">
                 {technology.category}
@@ -75,8 +65,7 @@ const Technology = ({ technologies }) => {
   <FaStar className="text-yellow-500" />
   {technology.rating}
 </span>
-
-            </div>
+</div>
 <button className="btn bg-slate-950 text-white w-full mt-5">
               Add to Stack
             </button>
@@ -88,8 +77,8 @@ const Technology = ({ technologies }) => {
     </div>
     </div>
     
-    <div className="w=1/4">
-      <h1>Your Stack</h1>
+    <div className="w-1/4">
+      <YourStack></YourStack>
     </div>
     </div>
   );
