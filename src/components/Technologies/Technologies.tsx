@@ -2,41 +2,44 @@ import { use, useState } from "react";
 import Technology from "./Technology";
 import YourStack from "../YourStack";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Technologies = ({ technologiesPromise }) => {
   const technologies = use(technologiesPromise);
 
   const [stack, setStack] = useState([]);
-
   const handleAddToStack = (technology) => {
     const alreadyAdded = stack.find(
       (item) => item.id === technology.id
     );
-
     if (alreadyAdded) {
-      alert("This technology is already added!");
+      toast.warning("This technology is already added!");
       return;
     }
-
-    setStack([...stack, technology]);
+     setStack([...stack, technology]);
+    toast.success(`${technology.name} added to stack!`);
   };
-
-  const handleRemove = (id) => {
+   const handleRemove = (id) => {
+    const removedTechnology = stack.find(
+      (item) => item.id === id
+    );
     const remaining = stack.filter(
       (item) => item.id !== id
     );
-
-    setStack(remaining);
+   setStack(remaining);
+    toast.info(`${removedTechnology.name} removed from stack!`);
   };
-
-  const handleRemoveAll = () => {
+   const handleRemoveAll = () => {
     setStack([]);
+    toast.error("All technologies removed!");
   };
 
   return (
     <div className="container mx-auto px-10">
 
       <h1 className="text-3xl font-bold">
-        Explore the{" "}
+        Explore the
         <span className="text-pink-700">
           Technologies
         </span>
@@ -47,16 +50,14 @@ const Technologies = ({ technologiesPromise }) => {
       </p>
 
       <div className="flex flex-col lg:flex-row gap-6 items-start">
-
-        <div className="w-full lg:w-3/4">
+      <div className="w-full lg:w-3/4">
           <Technology
             technologies={technologies}
             stack={stack}
             handleAddToStack={handleAddToStack}
           />
         </div>
-
-        <div className="w-full lg:w-1/4">
+     <div className="w-full lg:w-1/4">
           <YourStack
             stack={stack}
             handleRemove={handleRemove}
@@ -65,6 +66,10 @@ const Technologies = ({ technologiesPromise }) => {
         </div>
 
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+      />
 
     </div>
   );
