@@ -14,8 +14,9 @@ DevStack is a responsive React application where users can explore different web
 
  Features
 
- 1. Explore Technologies
-Users can explore different technologies with useful information such as:
+ 1. Explore Technologies:
+
+ Users can explore different technologies with useful information such as:
 
 - Technology name
 - Category
@@ -25,14 +26,14 @@ Users can explore different technologies with useful information such as:
 - Badge
 - Icon
 
- 2. Build Your Own Stack
+ 2. Build Your Own Stack:
 Users can add technologies to the **Your Stack** section.
 
 - Selected technologies are displayed separately.
 - The same technology cannot be added twice.
 - The Add button changes after a technology is selected.
 
- 3. Remove Technologies
+ 3. Remove Technologies:
 Users can manage their stack easily.
 
 - Remove a single technology
