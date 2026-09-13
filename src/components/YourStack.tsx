@@ -1,3 +1,5 @@
+import { FaXmark } from "react-icons/fa6";
+
 const YourStack = ({
   stack,
   handleRemove,
@@ -60,15 +62,12 @@ const YourStack = ({
                   </div>
 
                 </div>
-
-                <button
-                  onClick={() =>
-                    handleRemove(item.id)
-                  }
-                  className="text-gray-400 hover:text-red-500 text-xl"
-                >
-                  ×
-                </button>
+         <button
+  onClick={() => handleRemove(item.id)}
+  className="text-gray-400 hover:text-red-500"
+>
+  <FaXmark />
+</button>
 
               </div>
 

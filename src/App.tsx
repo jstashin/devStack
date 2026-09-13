@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import Banner from "./components/Banner"
 import Nav from "./components/Nav"
 import Technologies from "./components/Technologies/Technologies";
@@ -10,7 +10,7 @@ const technologiesFetch=async()=>{
   return data;
 }
 function App() {
-  const technologiesPromise=technologiesFetch();
+  const [technologiesPromise]=useState(()=>technologiesFetch());
   return (
     <>
     

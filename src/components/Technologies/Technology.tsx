@@ -1,4 +1,4 @@
-import { FaStar } from "react-icons/fa6";
+import { FaCheck, FaStar } from "react-icons/fa6";
 
 const Technology = ({
   technologies,
@@ -86,22 +86,10 @@ const Technology = ({
                 </span>
 
               </div>
-
-              <button
-                onClick={() =>
-                  handleAddToStack(technology)
-                }
-                disabled={isAdded}
-                className={`btn w-full mt-5 ${
-                  isAdded
-                    ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                    : "bg-slate-950 text-white"
-                }`}
-              >
-                {isAdded
-                  ? "✓ Added to Stack"
-                  : "Add to Stack"}
-              </button>
+            <button onClick={() => handleAddToStack(technology)}
+             disabled={isAdded} className={`btn w-full mt-5 ${isAdded? "bg-gray-300 text-gray-500": "bg-slate-950 text-white"}`}
+>                           {isAdded ? (<span className="flex items-center justify-center gap-2"><FaCheck />Added to Stack</span>) : ("Add to Stack")}
+             </button>
 
             </div>
 

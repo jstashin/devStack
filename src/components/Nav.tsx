@@ -2,7 +2,7 @@ import Logo from "../../assets/logo-text.png";
 
 const Nav = () => {
   return (
-    <nav>
+    <nav className="sticky top-0 z-50 bg-white">
       <div className="container mx-auto px-10">
         <div className="flex items-center justify-between py-5">
 
@@ -34,14 +34,14 @@ const Nav = () => {
           
           <img src={Logo} alt="" className="" />
        <ul className="hidden md:flex items-center gap-8">
-            <li>Home</li>
-            <li>Technologies</li>
-            <li>Projects</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li className="text-pink-500">Home</li>
+            <li className="text-gray-600 hover:text-pink-500">Technologies</li>
+            <li className="text-gray-600 hover:text-pink-500">Projects</li>
+            <li className="text-gray-600 hover:text-pink-500">About</li>
+            <li className="text-gray-600 hover:text-pink-500">Contact</li>
           </ul>
           <div className="flex items-center gap-3">
-            <button>Sign In</button>
+            <button className="text-gray-600 btn rounded-full hover:bg-pink-500">Sign In</button>
 
             <button className="btn rounded-full bg-pink-500">
               Sign Up

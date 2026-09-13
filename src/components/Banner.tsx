@@ -25,11 +25,11 @@ const Banner = () => {
           </p>
 
           <div className="flex gap-4 mt-8">
-            <button className="px-6 py-3 rounded-lg text-white font-semibold bg-gradient-to-r from-orange-500 to-pink-500">
+            <button className="w-52 h-14 px-6 py-3 rounded-lg text-white font-semibold bg-gradient-to-r from-orange-500 to-pink-500">
               Explore Technologies
             </button>
 
-            <button className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700">
+            <button className="w-52 h-14 px-6 py-3 rounded-lg border border-gray-300 text-gray-700">
               Learn More
             </button>
           </div>
