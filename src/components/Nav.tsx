@@ -3,7 +3,7 @@ import Logo from "../../assets/logo-text.png";
 const Nav = () => {
   return (
     <nav>
-      <div className="container mx-auto px-5">
+      <div className="container mx-auto px-10">
         <div className="flex items-center justify-between py-5">
 
          <label className="btn btn-circle swap swap-rotate md:hidden">

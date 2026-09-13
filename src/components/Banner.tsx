@@ -2,7 +2,7 @@ import BannerImg from "../../assets/banner-stack.png";
 
 const Banner = () => {
   return (
-    <section className="container mx-auto px-5 py-20">
+    <section className="container mx-auto px-10 py-20">
       <div className="flex flex-col md:flex-row items-center justify-between gap-10">
 
         
@@ -35,7 +35,7 @@ const Banner = () => {
           </div>
         </div>
 
-        {/* Right side */}
+        
         <div className="md:w-1/2 flex justify-center">
           <img
             src={BannerImg}
