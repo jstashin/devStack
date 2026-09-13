@@ -1,12 +1,19 @@
 import { FaCheck, FaStar } from "react-icons/fa6";
+import type { TechnologyType } from "../../types/technology";
+
+type TechnologyProps = {
+  technologies: TechnologyType[];
+  stack: TechnologyType[];
+  handleAddToStack: (technology: TechnologyType) => void;
+};
 
 const Technology = ({
   technologies,
   stack,
-  handleAddToStack
-}) => {
+  handleAddToStack,
+}: TechnologyProps) => {
 
-  const getBadgeColor = (badge) => {
+  const getBadgeColor = (badge: string) => {
     if (badge === "Popular") {
       return "bg-blue-100 text-blue-500";
     } 
@@ -29,7 +36,6 @@ const Technology = ({
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
       {technologies.map((technology) => {
 
         const isAdded = stack.some(
@@ -41,9 +47,7 @@ const Technology = ({
             key={technology.id}
             className="card bg-base-100 border border-gray-200 shadow-sm p-5"
           >
-
             <div className="flex justify-between items-center">
-
               <img
                 src={technology.icon}
                 alt={technology.name}
@@ -57,11 +61,9 @@ const Technology = ({
               >
                 {technology.badge}
               </span>
-
             </div>
 
             <div className="mt-5">
-
               <h2 className="text-xl font-bold">
                 {technology.name}
               </h2>
@@ -71,7 +73,6 @@ const Technology = ({
               </p>
 
               <div className="flex items-center justify-between mt-5 text-sm">
-
                 <span className="bg-gray-100 px-2 py-1 rounded">
                   {technology.category}
                 </span>
@@ -84,19 +85,30 @@ const Technology = ({
                   <FaStar className="text-yellow-500" />
                   {technology.rating}
                 </span>
-
               </div>
-            <button onClick={() => handleAddToStack(technology)}
-             disabled={isAdded} className={`btn w-full mt-5 ${isAdded? "bg-gray-300 text-gray-500": "bg-slate-950 text-white"}`}
->                           {isAdded ? (<span className="flex items-center justify-center gap-2"><FaCheck />Added to Stack</span>) : ("Add to Stack")}
-             </button>
 
+              <button
+                onClick={() => handleAddToStack(technology)}
+                disabled={isAdded}
+                className={`w-full mt-5 py-3 rounded-lg ${
+                  isAdded
+                    ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                    : "bg-slate-950 text-white"
+                }`}
+              >
+                {isAdded ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <FaCheck />
+                    Added to Stack
+                  </span>
+                ) : (
+                  "Add to Stack"
+                )}
+              </button>
             </div>
-
           </div>
         );
       })}
-
     </div>
   );
 };

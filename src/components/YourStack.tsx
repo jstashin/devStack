@@ -1,10 +1,17 @@
 import { FaXmark } from "react-icons/fa6";
+import type { TechnologyType } from "../types/technology";
+
+type YourStackProps = {
+  stack: TechnologyType[];
+  handleRemove: (id: string) => void;
+  handleRemoveAll: () => void;
+};
 
 const YourStack = ({
   stack,
   handleRemove,
-  handleRemoveAll
-}) => {
+  handleRemoveAll,
+}: YourStackProps) => {
 
   return (
     <div className="border border-gray-200 rounded-2xl p-6 shadow-sm">
@@ -20,29 +27,20 @@ const YourStack = ({
       </p>
 
       {stack.length === 0 ? (
-
         <div className="border-2 border-dashed border-gray-200 rounded-xl h-32 mt-6 flex items-center justify-center">
-
           <p className="text-gray-400 text-center">
             Your stack is empty.
           </p>
-
         </div>
-
       ) : (
-
         <>
           <div className="mt-6 space-y-3">
-
             {stack.map((item) => (
-
               <div
                 key={item.id}
                 className="flex items-center justify-between border border-gray-200 rounded-lg p-3"
               >
-
                 <div className="flex items-center gap-3">
-
                   <img
                     src={item.icon}
                     alt={item.name}
@@ -50,7 +48,6 @@ const YourStack = ({
                   />
 
                   <div>
-
                     <h3 className="font-semibold text-sm">
                       {item.name}
                     </h3>
@@ -58,21 +55,17 @@ const YourStack = ({
                     <p className="text-xs text-gray-400">
                       {item.category}
                     </p>
-
                   </div>
-
                 </div>
-         <button
-  onClick={() => handleRemove(item.id)}
-  className="text-gray-400 hover:text-red-500"
->
-  <FaXmark />
-</button>
 
+                <button
+                  onClick={() => handleRemove(item.id)}
+                  className="text-gray-400 hover:text-red-500"
+                >
+                  <FaXmark className="text-xl" />
+                </button>
               </div>
-
             ))}
-
           </div>
 
           <button
@@ -81,11 +74,8 @@ const YourStack = ({
           >
             Remove All
           </button>
-
         </>
-
       )}
-
     </div>
   );
 };
