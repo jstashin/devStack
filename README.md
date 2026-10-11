@@ -1,65 +1,120 @@
-Name of the project: DevStack.
+# DevStack — Build Your Technology Stack
 
-DevStack is a responsive React application where users can explore different web development technologies and build their own custom technology stack.
+DevStack is a responsive web application that helps users explore web development technologies and build a custom technology stack. Users can browse technology cards, select tools, and manage their selections in the Your Stack section.
 
- Technologies Used
+## Live Website
 
-- React
-- JavaScript
-- Tailwind CSS
-- DaisyUI
-- React Icons
-- React Toastify
-- JSON Data
+🌐 [Visit DevStack](https://eloquent-sable-8cc848.netlify.app)
 
- Features
 
- 1. Explore Technologies:
 
- Users can explore different technologies with useful information such as:
+## Main Features
 
-- Technology name
-- Category
-- Description
-- Difficulty
-- Rating
-- Badge
-- Icon
+- **Explore Technologies:** Browse technologies with names, icons, descriptions, categories, difficulty levels, ratings, and badges.
+- **Build a Custom Stack:** Add technologies to the Your Stack section.
+- **Duplicate Prevention:** Each technology can only be selected once.
+- **Selection Feedback:** Selected technologies display a disabled “Added to Stack” button.
+- **Manage Selections:** Remove individual technologies or clear the entire stack.
+- **Live Selection Count:** View the total number of selected technologies.
+- **Toast Notifications:** Receive feedback when adding or removing technologies.
+- **Loading State:** A loading indicator appears while technology data is being fetched.
+- **Responsive Layout:** Explore technology cards and manage your stack on different screen sizes.
 
- 2. Build Your Own Stack:
-Users can add technologies to the **Your Stack** section.
+## Technology Stack
 
-- Selected technologies are displayed separately.
-- The same technology cannot be added twice.
-- The Add button changes after a technology is selected.
+| Technology | Purpose |
+|------------|---------|
+| React | Component-based user interface |
+| TypeScript | Type checking and application logic |
+| Vite | Development server and production build |
+| Tailwind CSS | Responsive styling |
+| DaisyUI | UI components |
+| React Icons | Interface icons |
+| React Toastify | Toast notifications |
+| Netlify | Hosting |
 
- 3. Remove Technologies:
-Users can manage their stack easily.
+## Dependencies
 
-- Remove a single technology
-- Remove all technologies at once
-- View the total number of selected technologies
+### Application Dependencies
 
- React Questions
+- `react` and `react-dom` — UI components and rendering
+- `tailwindcss` — Utility-first styling
+- `@tailwindcss/vite` — Tailwind integration with Vite
+- `react-icons` — Icons
+- `react-toastify` — Toast notifications
 
-# 1. What is JSX, and why is it used in React?
+### Development Dependencies
 
-JSX is a syntax that allows us to write HTML-like code inside JavaScript.
+- `vite` — Development and build tools
+- `@vitejs/plugin-react` — React integration with Vite
+- `typescript` — Type checking
+- `daisyui` — UI component library
+- `oxlint` — Code linting
+- `@types/react` and `@types/react-dom` — React type definitions
+- `@types/node` — Node.js type definitions
 
-It makes React components easier to write and understand.
+## Run Locally
 
-# 2. What is the difference between props and state?
-Props are used to pass data from a parent component to a child component.State is used to store and update data inside a component.
-# 3. What does the useState hook do, and where did you use it in this project?
-useState is used to store data that can change while the application is running.In this project, I used useState to store the selected technologies.
-# 4. What does the useEffect hook do, and why did you need it to load the JSON data?
-useEffect is used to perform tasks after a component renders, such as loading data from an API or JSON file.
-# 5. Why does every item in a .map() list need a unique key prop?
-A unique key helps React identify each item in a list.
-It helps React update the correct item efficiently when something changes.
-# 6. What is conditional rendering? Show one place you used it.
-Conditional rendering means showing different UI depending on a condition.
-In this project, I used it in the Your Stack section.
-# 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
-A parent component sends data to a child component using props.
-A child can send information back to the parent by calling a function passed through props.
+### 1. Prerequisites
+
+Install a current Node.js LTS release and npm.
+
+### 2. Clone the Repository
+
+```bash
+git clone https://github.com/jstashin/devStack.git
+cd devStack
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the Development Server
+
+```bash
+npm run dev
+```
+
+Open the local URL displayed in your terminal.
+
+### Environment Variables
+
+No environment variables or API keys are required for the current implementation.
+
+## Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start the development server |
+| `npm run build` | Run TypeScript checks and create a production build |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run Oxlint |
+
+## Data and State Management
+
+- Technology data is fetched from `public/data.json`.
+- React's `use()` API reads the data promise inside a Suspense boundary.
+- React's `useState` manages the selected technologies.
+- Props and callback functions connect the technology cards and stack panel.
+
+Selections are stored in memory and reset when the page is refreshed.
+
+## Deployment
+
+The application is hosted on Netlify.
+
+To deploy your own copy:
+
+1. Import the repository into Netlify.
+2. Set the build command to `npm run build`.
+3. Set the publish directory to `dist`.
+4. Deploy the project.
+
+## Relevant Links
+
+- [Live Website](https://eloquent-sable-8cc848.netlify.app)
+- [GitHub Repository](https://github.com/jstashin/devStack)
+- [Developer GitHub](https://github.com/jstashin)
